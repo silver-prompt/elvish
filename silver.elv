@@ -38,10 +38,8 @@ fn init {
   last-cmd-start-time = (now)
 }
 
-try {
-  silver -V >/dev/null 2>&1
-} except {
-  put 'silver is not installed; please follow the instructions on https://github.com/reujab/silver#installation'
-} else {
+if (has-external silver) {
   init
+} else {
+  put 'silver is not installed; please follow the instructions on https://github.com/reujab/silver#installation'
 }
