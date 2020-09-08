@@ -33,6 +33,7 @@ fn before-readline-hook {
 fn init {
   edit:prompt = { E:jobs=""$num-bg-jobs E:cmdtime=""$last-cmd-duration silver lprint }
   edit:rprompt = { E:jobs=""$num-bg-jobs E:cmdtime=""$last-cmd-duration silver rprint }
+  E:VIRTUAL_ENV_DISABLE_PROMPT = 1 # Doesn't make any sense yet
   add-before-readline $before-readline-hook~
   add-after-readline $after-readline-hook~
   last-cmd-start-time = (now)
